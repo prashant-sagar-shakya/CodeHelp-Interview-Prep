@@ -75,7 +75,7 @@ Primary learning source:
 Clone and explore:
 
 ```bash
-git clone https://github.com/prashant-sagar-shakya/CodeHelp-Interview-Prep
+git clone https://github.com/prashant-sagar-shakya/CodeHelp-Interview-Prep.git
 CodeHelp-Interview-Prep
 ```
 
