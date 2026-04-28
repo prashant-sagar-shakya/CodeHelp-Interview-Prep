@@ -1,0 +1,89 @@
+1. TIME COMPLEXITY
+-------------------
+- It represents the amount of time an algorithm takes as a function of input size (n).
+
+Order of growth:
+O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(n^3) < O(2^n) < O(n!)
+
+Big O Notations:
+- Big O     -> Upper Bound (Worst Case)
+- Big Θ     -> Average Case
+- Big Ω     -> Lower Bound (Best Case)
+
+Basic Patterns:
+- Parallel loops      -> O(n + m)
+- Nested loops        -> O(n * m)
+- Linear operations   -> O(n)
+- Divide/Multiplicative -> O(log n)
+
+--------------------------------
+2. 10^8 OPERATIONS RULE
+--------------------------------
+- Modern machines can perform ~10^8 operations per second.
+
+Constraints vs Allowed Complexity:
+
+n <= 10          -> O(n!), O(n^6)
+n <= 15–18       -> O(2^n * n^2)   (Bitmask DP, subsets)
+n <= 100         -> O(n^4)
+n <= 400         -> O(n^3)
+n <= 2000        -> O(n^2 log n)
+n <= 10^4        -> O(n^2)
+n <= 10^6        -> O(n log n)
+n <= 10^8        -> O(n), O(log n)
+
+Examples:
+- O(n!)       -> Permutations, TSP brute force
+- O(2^n)      -> Subsets, Bitmask DP
+- O(n^3)      -> Floyd Warshall
+- O(n^2)      -> Pair checking
+- O(n log n)  -> Sorting, Binary Search
+- O(n)        -> Single loop, Prefix Sum
+
+--------------------------------
+3. SPACE COMPLEXITY
+--------------------------------
+- It represents the amount of memory used by an algorithm.
+
+Types of Space:
+
+O(1):
+- Fixed variables
+- Example: swap, sum
+
+O(n):
+- Arrays, vectors, strings
+- Stack, queue, deque, set, map
+- Prefix sum
+
+O(n^2):
+- Matrix
+- 2D DP
+- Graph adjacency matrix
+
+O(log n):
+- Recursion stack (Binary Search)
+
+O(n) (recursion):
+- Deep recursion (DFS)
+
+O(n + m):
+- Graph adjacency list
+
+--------------------------------
+4. DATA STRUCTURE SPACE
+--------------------------------
+- Variables                  -> O(1)
+- Array / Vector / String    -> O(n)
+- Stack / Queue / Set / Map  -> O(n)
+- Priority Queue             -> O(n)
+- Grid / 2D DP              -> O(n^2)
+- Graph (Adj List)           -> O(n + m)
+- DFS                        -> O(n)
+- Binary Search (recursive)  -> O(log n)
+
+--------------------------------
+5. IMPORTANT CONCEPT
+--------------------------------
+- Time Complexity is often inversely proportional to Space Complexity.
+  (More memory can reduce time, and vice versa)
