@@ -15,7 +15,7 @@
 
 ## 🧭 Executive Overview
 
-This repository houses a **curated, high-impact implementation framework** derived from Love Babbar’s flagship CodeHelp 149 series. 
+This repository houses a **curated, high-impact implementation framework** derived from Love Babbar’s CodeHelp 149 series.
 
 Rather than attempting an unfocused survey, this workspace deliberately targets the **core engineering foundations of computer science**: systems-level C++ mechanics, pointer and dynamic memory architecture, array engineering, search-space reduction, sorting paradigms, linear abstract data types, and hierarchical tree structures.
 
@@ -29,55 +29,25 @@ Rather than attempting an unfocused survey, this workspace deliberately targets 
 
 | Section | Description |
 | :--- | :--- |
-| [🗺️ Architectural Blueprint](#️-architectural-blueprint) | Visual end-to-end curriculum pipeline |
-| [📐 Core Engineering Modules](#-core-engineering-modules) | Interactive deep dives into language, memory, algorithms & structures |
-| [🧠 Algorithm Selection Engine](#-algorithm-selection-engine) | Decision framework for competitive and interview problem solving |
+| [🗺️ Architectural Roadmap](#️-architectural-roadmap) | Multi-tier progression across core data structures and systems C++ |
+| [📐 Core Engineering Modules](#-core-engineering-modules) | Interactive deep dives into memory, algorithms & structures |
+| [🧠 Algorithm Decision Matrix](#-algorithm-decision-matrix) | Systematic decision framework for pattern matching in technical interviews |
 | [📊 Complexity & Performance Matrix](#-complexity--performance-matrix) | Space-time asymptotics reference for in-scope structures |
-| [📂 Repository Topology](#-repository-topology) | Directory and file mapping across the workspace |
-| [🎯 Interview Engineering Protocol](#-interview-engineering-protocol) | Systematic process for solving problems under interview conditions |
+| [🎯 Interview Engineering Protocol](#-interview-engineering-protocol) | Structured execution lifecycle for problem solving under timed conditions |
+| [📌 Getting Started & Local Setup](#-getting-started--local-setup) | Instructions for cloning and compiling solutions locally |
 
 ---
 
-## 🗺️ Architectural Blueprint
+## 🗺️ Architectural Roadmap
 
-The curriculum is structured into five progressive tiers, transitioning from low-level memory mechanics up to hierarchical data architectures:
+The curriculum is structured into four progressive tiers, transitioning from low-level memory mechanics up to hierarchical data architectures:
 
-```mermaid
-flowchart TD
-    classDef foundation fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc;
-    classDef algorithms fill:#1e293b,stroke:#a855f7,stroke-width:2px,color:#f8fafc;
-    classDef linear fill:#1e293b,stroke:#10b981,stroke-width:2px,color:#f8fafc;
-    classDef hierarchical fill:#1e293b,stroke:#f59e0b,stroke-width:2px,color:#f8fafc;
-
-    subgraph Tier1 ["Tier 1: Core System & Memory Architecture"]
-        A1["C++ Foundations & Control Flow"]:::foundation --> A2["Pointers & Pointer Arithmetic"]:::foundation
-        A2 --> A3["Dynamic Memory & References"]:::foundation
-        A3 --> A4["Object-Oriented Programming (OOP)"]:::foundation
-    end
-
-    subgraph Tier2 ["Tier 2: Array & Search Engineering"]
-        B1["1D & 2D Array Matrix Mechanics"]:::algorithms --> B2["C++ Standard Template Library (STL)"]:::algorithms
-        B2 --> B3["Elementary Sorting Algorithms"]:::algorithms
-        B3 --> B4["Binary Search & Predicate Functions"]:::algorithms
-        B4 --> B5["Basic Number Theory & Sieve"]:::algorithms
-    end
-
-    subgraph Tier3 ["Tier 3: Linear Abstract Data Types"]
-        C1["Singly, Doubly & Circular Linked Lists"]:::linear --> C2["Floyd's Cycle Finding & List Reversal"]:::linear
-        C2 --> C3["Stack Architecture & Monotonic Stacks"]:::linear
-        C3 --> C4["Queues, Circular Queues & Deques"]:::linear
-    end
-
-    subgraph Tier4 ["Tier 4: Hierarchical Structures"]
-        D1["Binary Tree Traversal Mechanics"]:::hierarchical --> D2["Tree Metrics: Height, Diameter, Views"]:::hierarchical
-        D2 --> D3["Binary Search Tree (BST) Properties"]:::hierarchical
-        D3 --> D4["BST Inorder Successor & Validation"]:::hierarchical
-    end
-
-    Tier1 --> Tier2
-    Tier2 --> Tier3
-    Tier3 --> Tier4
-```
+| Tier | Domain | Core Engineering Focus | Key Architectural Patterns |
+| :--- | :--- | :--- | :--- |
+| **Tier 1** | **Systems C++ & Memory Architecture** | Pointer mechanics, Reference semantics, Free Store allocations (`new`/`delete`), OOP principles | RAII hygiene, Dangling pointer prevention, Encapsulation, Dynamic polymorphism |
+| **Tier 2** | **Array & Search Engineering** | Multi-dimensional matrix layout, STL sequences, Predicate-based Binary Search, Number theory | Search space monotonicity, Dutch National Flag, Sieve of Eratosthenes, Matrix rotations |
+| **Tier 3** | **Linear Abstract Data Types** | Singly/Doubly/Circular lists, LIFO Stack mechanics, FIFO Circular Queues, Deques | Floyd's cycle detection, Monotonic Stack (NGE/NSE), Sliding Window Maximum |
+| **Tier 4** | **Hierarchical Structures** | Binary Tree node models, BFS Level-Order, Morris Traversal, Binary Search Trees | Height & diameter calculation, Projections/Views, BST sorted property, LCA |
 
 ---
 
@@ -92,22 +62,20 @@ Click on any module below to expand its technical breakdown, mental models, key 
 
 Mastering the low-level execution environment of C++ is fundamental to writing performant algorithms.
 
-```mermaid
-flowchart LR
-    subgraph StackMemory ["Stack Frame (Fast, Automatic)"]
-        P1["Pointer: int* ptr"] -->|Stores Address| H1
-        R1["Reference: int& ref"] -->|Alias| V1["Local Variable: int x = 10"]
-    end
-    subgraph FreeStoreMemory ["Free Store (Dynamic Memory)"]
-        H1["Allocated Block: new int[N]"]
-    end
-```
+#### Memory Architecture Breakdown:
+
+| Attribute | Stack Frame | Free Store (Dynamic Allocation) |
+| :--- | :--- | :--- |
+| **Allocation Mechanism** | Automatic, compiler-managed scope binding | Explicit runtime request via `new` / `new[]` |
+| **Deallocation Mechanism** | Automatic cleanup when scope terminates | Explicit runtime release via `delete` / `delete[]` |
+| **Execution Performance** | Zero overhead (CPU stack pointer adjustment) | Allocator management overhead |
+| **Primary Failure Modes** | Stack overflow (excessive frame allocation) | Memory leaks, dangling pointers, double deletion |
 
 #### Core Competencies:
 - **Pointers & Arithmetic:** Single, double (`int**`), and multi-level indirection; array decayed pointers; constant pointers vs. pointers to constants.
-- **Dynamic Memory Management:** Stack vs. Free Store allocation via `new` / `delete`; preventing memory leaks and dangling pointer hazards.
+- **Dynamic Memory Management:** Stack vs. Free Store allocation; preventing memory leaks and dangling pointer hazards.
 - **Reference Semantics:** Pass-by-value vs. Pass-by-reference (`&`); const reference optimizations for large objects.
-- **Object-Oriented Programming (OOPs):**
+- **Object-Oriented Programming (OOP):**
   - **Encapsulation:** Data hiding, access specifiers (`private`, `protected`, `public`).
   - **Abstraction:** Interface design and implementation decoupling.
   - **Inheritance:** Single, multi-level, multiple, hierarchical, and hybrid inheritance patterns.
@@ -151,18 +119,14 @@ Arrays form the memory layout foundation of modern CPUs due to contiguous memory
 
 Binary Search is not merely an array search algorithm; it is a general mathematical framework for searching across any monotonic decision space.
 
-```mermaid
-flowchart TD
-    Start["Search Problem with Search Space [low, high]"] --> Mid["Calculate mid = low + (high - low) / 2"]
-    Mid --> Predicate{"Is Condition / Predicate Satisfied at mid?"}
-    Predicate -- Yes --> Store["Record Candidate Answer"]
-    Store --> ShrinkLeft["Tighten Search Boundary towards Optimal Side"]
-    Predicate -- No --> ShrinkRight["Discard Invalid Half"]
-    ShrinkLeft --> Terminate{"low > high?"}
-    ShrinkRight --> Terminate
-    Terminate -- No --> Mid
-    Terminate -- Yes --> Finish["Return Optimal Candidate"]
-```
+#### Binary Search State Transition & Monotonic Invariant:
+
+| Step / Boundary | State Transformation | Mathematical Invariant |
+| :--- | :--- | :--- |
+| **Midpoint Computation** | `mid = low + (high - low) / 2` | Eliminates integer overflow for large boundary limits |
+| **Predicate Evaluation $P(\text{mid})$** | Evaluates problem feasibility constraint | Monotonic transition: $F \dots F \longrightarrow T \dots T$ |
+| **Feasible Outcome** | `ans = mid; high = mid - 1` (Minimization) | Stores viable answer and contracts upper bound |
+| **Infeasible Outcome** | `low = mid + 1` | Eliminates non-viable search space permanently |
 
 #### Core Competencies:
 - **Search Space Monotonicity:** Identifying invariant monotonic conditions $f(\text{mid}) \in \{0, 1\}$.
@@ -240,30 +204,21 @@ Hierarchical structures model non-linear parent-child relationships and provide 
 
 ---
 
-## 🧠 Algorithm Selection Engine
+## 🧠 Algorithm Decision Matrix
 
 Use this systematic decision framework to select the optimal algorithmic approach based on problem constraints:
 
-```mermaid
-flowchart TD
-    Problem["Analyze Input Structure & Problem Statement"] --> Category{"What is the underlying data structure?"}
-    
-    Category -- "Array / Linear Sequence" --> SortedCheck{"Is the sequence sorted or monotonic?"}
-    Category -- "Node Chain" --> LLAction["Use Fast & Slow Pointers / Dummy Node Strategy"]
-    Category -- "Window / Extreme Elements" --> WindowAction["Use Two Pointers or Monotonic Deque"]
-    Category -- "Nearest Greater / Smaller" --> StackAction["Use Monotonic Stack (O(N) amortized)"]
-    Category -- "Hierarchical / Tree" --> TreeAction{"Is order preserved (BST) or arbitrary?"}
-
-    SortedCheck -- Yes --> SearchGoal{"Searching for a target or optimal bound?"}
-    SortedCheck -- No --> ArrayAction["Consider In-Place Swaps, Dutch Flag, or Prefix Sums"]
-
-    SearchGoal -- "Exact Target / Rotated Array" --> BSStandard["Standard Binary Search (O(log N))"]
-    SearchGoal -- "Maximize the Minimum / Resource Partition" --> BSPredicate["Binary Search on Answer Space (O(N log(Range)))"]
-    SearchGoal -- "Pair with Target Sum" --> TwoPtrs["Two Pointers from Both Extremes (O(N))"]
-
-    TreeAction -- "BST (Ordered)" --> BSTStrategy["Exploit Inorder Sorted Property / Directional LCA (O(H))"]
-    TreeAction -- "Arbitrary Binary Tree" --> BTStrategy["Level-Order BFS or Iterative Traversal (O(N))"]
-```
+| Input & Problem Characteristic | Key Problem Signal | Optimal Algorithmic Strategy | Asymptotic Time | Space Complexity |
+| :--- | :--- | :--- | :---: | :---: |
+| **Monotonic Answer Space** | "Maximize the minimum", "Minimize the maximum", Book Allocation | Binary Search on Answer Space | $O(N \log(\text{Range}))$ | $O(1)$ |
+| **Sorted Array Search** | Target lookup, first/last occurrence, rotated sorted array | Standard / Modified Binary Search | $O(\log N)$ | $O(1)$ |
+| **Sorted Array Pair Sum** | Find pair summing to $K$, Dutch National Flag | Two Pointers (Extreme ends / In-place partition) | $O(N)$ | $O(1)$ |
+| **Nearest Greater / Smaller** | Next Greater Element, Stock Span, Histogram Area | Monotonic Stack | $O(N)$ amortized | $O(N)$ |
+| **Sliding Window Extremes** | Maximum / Minimum in every continuous window of size $K$ | Monotonic Double-Ended Queue (`std::deque`) | $O(N)$ | $O(K)$ |
+| **Linear Node Sequence** | Cycle detection, find middle node, list reversal | Floyd's Fast & Slow Pointers / Three Pointers | $O(N)$ | $O(1)$ |
+| **Arbitrary Binary Tree** | Level-by-level computation, vertical views, level order | Breadth-First Search (Level-Order Queue) | $O(N)$ | $O(W)$ |
+| **Binary Tree In-Order** | Traversal without extra space overhead | Morris Traversal (Threaded Binary Tree) | $O(N)$ | $O(1)$ |
+| **Ordered Search Tree (BST)** | Range queries, $K$-th smallest element, BST validation, LCA | BST Inorder Sorted Property & Directional Search | $O(H)$ | $O(1)$ |
 
 ---
 
@@ -288,7 +243,7 @@ $^*$ *Search complexity in arrays drops to $O(\log N)$ when the array is sorted 
 
 ## 🎯 Interview Engineering Protocol
 
-Every implementation in this repository adheres to this structured four-stage execution lifecycle:
+Every implementation in this repository adheres to this structured execution lifecycle:
 
 <details open>
 <summary><b>1. Constraint Sizing & Asymptotic Budgeting</b></summary>
